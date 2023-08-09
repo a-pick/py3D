@@ -4,9 +4,6 @@ import os
 import pygame
 from geometry import *
 
-# == INIT ==
-projection_matrix = [[1, 0, 0], [0, 1, 0], [0, 0, 0]]
-
 pygame.init()
 window = pygame.display.set_mode((1000, 1000))
 clock = pygame.time.Clock()
@@ -31,16 +28,22 @@ def project_vertex(vertex):
     """
     Returns the 2D coordinates of a 3D vertex projected in 2D space
     """
-    matmul_res = np.matmul(projection_matrix, vertex)
+    matmul_res = np.matmul(Projection.projection_matrix, vertex)
     return [matmul_res[0], matmul_res[1]]
 
 
 def connect_edges(shape):
+    """
+    Connects the edges of a shape using its edge definition and its points.
+    """
     for edge in shape.edges:
         pygame.draw.line(window, shape.color, (shape.points[edge[0]]), (shape.points[edge[1]]))
 
 
 def render(shapes):
+    """
+    Renders the shapes in the window.
+    """
     clear_terminal()
 
     for shape in shapes:

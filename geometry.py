@@ -1,5 +1,8 @@
 import math
 
+class Projection:
+    projection_matrix = [[1, 0, 0], [0, 1, 0], [0, 0, 0]]
+
 class Rotation:
     def __init__(self, angle_x: float = 0, angle_y: float = 0, angle_z: float = 0):
         self.angle_x = angle_x
