@@ -11,7 +11,7 @@ pygame.init()
 window = pygame.display.set_mode((1000, 1000))
 clock = pygame.time.Clock()
 
-with open("pySpinningCube\config.toml", "rb") as f:
+with open("config.toml", "rb") as f:
     config = tomllib.load(f)
 
 shapes = [
