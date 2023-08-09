@@ -12,8 +12,8 @@ with open("config.toml", "rb") as f:
     config = tomllib.load(f)
 
 shapes = [
-    Cube(scale=1, position=(-200, -200), color=(0, 255, 0), rotation=Rotation(-45, 90, 45)),
-    Cube(scale=2, position=(200, 200), color=(255, 0, 0), rotation=Rotation(0, 45, 90)),
+    Cube(scale=1, position=(-200, -200), color=(0, 255, 0), start_rotation=Rotation(0, 0, 0, "xyz", 0.0025)),
+    Pyramid(scale=2, position=(175, 175), color=(255, 0, 0), start_rotation=Rotation(0, 15, -90, "x", 0.005)),
 ]
 
     
@@ -48,12 +48,12 @@ def render(shapes):
 
     for shape in shapes:
         for index, vertex in enumerate(shape.vertices):
-            rot_x = np.matmul(shape.rotation.x_mat, vertex)
-            rot_y = np.matmul(shape.rotation.y_mat, rot_x)
-            rot_z = np.matmul(shape.rotation.z_mat, rot_y)
+            rot_x = np.matmul(shape.start_rotation.x_mat, vertex)
+            rot_y = np.matmul(shape.start_rotation.y_mat, rot_x)
+            rot_z = np.matmul(shape.start_rotation.z_mat, rot_y)
             vertex_2d = project_vertex(rot_z)
 
-            shape.rotation.rotate_all_axis(0.002)
+            shape.start_rotation.rotate()
             
             x = vertex_2d[0] * config['global_scale'] + (window.get_width() / 2) + (shape.position[0] * (config['global_scale'] / 100))
             y = vertex_2d[1] * config['global_scale'] + (window.get_height() / 2) + (shape.position[1] * (config['global_scale'] / 100))
