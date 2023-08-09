@@ -1,8 +1,10 @@
 import math
+import numpy as np
 
 
 class Projection:
     projection_matrix = [[1, 0, 0], [0, 1, 0], [0, 0, 0]]
+    inverse_projection_matrix = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
 
 
 class Rotation:
