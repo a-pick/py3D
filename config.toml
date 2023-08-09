@@ -1,0 +1,4 @@
+global_scale = 100
+vertex_scale = 5
+background_color = [20, 0, 20]
+edge_width = 1
