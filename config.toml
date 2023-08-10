@@ -1,5 +1,3 @@
-global_scale = 100 # in pixels
-vertex_scale = 5 # in pixels
-background_color = [20, 0, 20] # in RGB
-edge_width = 1 # in pixels
-vertex_selection_forgiveness = 10 # in pixels
+['Window Settings']
+window_width = 1000
+window_height = 1000
