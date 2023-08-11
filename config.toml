@@ -1,3 +1,8 @@
 ['Window Settings']
-window_width = 1000
-window_height = 1000
+window_width = 1280
+window_height = 720
+
+['Drawing Settings']
+line_width = 3
+line_color = [0, 0, 0]
+fill_color = [150, 150, 150]
