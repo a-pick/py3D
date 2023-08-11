@@ -8,5 +8,5 @@ A Python-based 3D renderer that I've started working on in an effort to better u
 - Beginnings of a camera system [2023-08-10]
 - (Very) basic GUI [2023-08-10]
 - Rudimentary lighting [2023-08-11]
-- Back face culling
-- Custom mesh support (.obj files)
+- Back face culling [2023-08-11]
+- Custom mesh support (.obj files) [2023-08-11]
