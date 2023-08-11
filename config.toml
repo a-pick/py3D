@@ -4,5 +4,5 @@ window_height = 720
 
 ['Drawing Settings']
 line_width = 3
-line_color = [0, 0, 0]
-fill_color = [150, 150, 150]
+line_color = [255, 255, 255]
+fill_color = [180, 150, 230]

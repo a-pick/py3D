@@ -11,6 +11,7 @@ class Engine3D:
     """
     projection_matrix = Mat4x4()
     theta = 0
+    wireframe = True
     
     def __init__(self, window: pygame.Surface):
         self.window = window
@@ -91,4 +92,7 @@ class Engine3D:
             
             # Draw triangle
             _points = [(vec.x, vec.y) for vec in triangle_projected.points]
-            draw_triangle(_points, (255, 255, 255), self.window, fill=True)
+            if self.wireframe == True:
+                draw_triangle(_points, (255, 255, 255), self.window)
+            if self.wireframe == False:
+                draw_triangle(_points, (255, 255, 255), self.window, fill=True)
