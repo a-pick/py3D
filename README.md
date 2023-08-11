@@ -5,4 +5,4 @@ A Python-based 3D renderer that I've started working on in an effort to better u
 - Primitive shapes (cube, pyramid) [2023-08-09]
 - Per-object rotation, scale, color, etc. [2023-08-09]
 - ~~Vertex "grabbing" and runtime vertex modification [2023-08-09]~~
-- (Very) basic GUI [2023-08-09]
+- (Very) basic GUI [2023-08-10]
