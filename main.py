@@ -1,10 +1,7 @@
 import pygame
-from pygame_widgets.slider import Slider
-from pygame_widgets.button import Button
 from pygame_widgets.toggle import Toggle
-from pygame_widgets.textbox import TextBox
 import pygame_widgets
-from utils import load_config
+from utils import load_config, clear_terminal
 import engine3D
 
 def main():
@@ -36,7 +33,9 @@ def main():
                 
         # Clear the display buffer
         window.fill((0, 0, 0))
+        clear_terminal()
         
+        # Wireframe toggle
         if checkbox.getValue() == 1:
             engine.wireframe = True
         else:

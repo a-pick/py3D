@@ -33,7 +33,7 @@ def draw_triangle(points: list, color: tuple, surface: pygame.Surface, fill: boo
     Draws a hollow triangle with an option to fill to the screen given a list of points (tuple pairs).
     """
     if fill:
-        pygame.draw.polygon(surface, config['Drawing Settings']['fill_color'], points)
+        pygame.draw.polygon(surface, color, points)
     else:
         pygame.draw.line(surface, config['Drawing Settings']['line_color'], points[0], points[1], config['Drawing Settings']['line_width'])
         pygame.draw.line(surface, config['Drawing Settings']['line_color'], points[1], points[2], config['Drawing Settings']['line_width'])

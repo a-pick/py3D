@@ -1,8 +1,14 @@
 ['Window Settings']
-window_width = 1280
-window_height = 720
+window_width = 1000
+window_height = 1000
 
 ['Drawing Settings']
 line_width = 3
 line_color = [255, 255, 255]
 fill_color = [180, 150, 230]
+
+['Camera Settings']
+near = 0.1
+far = 1000.0
+fov = 80
+perspective_warp = 0.1 # 0 = orthographic, 1 = perspective, 2 = fisheye

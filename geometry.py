@@ -35,32 +35,40 @@ class Mat4x4:
         return self.m[index]
     
 class Triangle:
-    def __init__(self, v1: Vec3=Vec3(0,0,0), v2: Vec3=Vec3(0,0,0), v3: Vec3=Vec3(0,0,0)):
+    def __init__(self, v1: Vec3=Vec3(0,0,0), v2: Vec3=Vec3(0,0,0), v3: Vec3=Vec3(0,0,0), color: tuple=(255,255,255)):
         self.points = [v1, v2, v3]
+        self.color = color
 
 class Mesh:
     def __init__(self):
         self.triangles = []
+        
+    def load_object_from_obj(self, filename: str):
+        with open(filename, "r") as f:
+            data = f.readlines()
+        vertices = []
+        
+        # while not at the end of the file
+        for line in data:
+            if line.startswith("v "):
+                # split the line into a list of strings
+                vertex = line.split()
+                # append the vertex to the list of vertices
+                vertices.append(Vec3(float(vertex[1]), float(vertex[2]), float(vertex[3])))
+            elif line.startswith("f "):
+                # split the line into a list of strings
+                face = line.split()
+                # append the face to the list of faces
+                self.triangles.append(Triangle(vertices[int(face[1]) - 1], vertices[int(face[2]) - 1], vertices[int(face[3]) - 1]))
+            
+        return True
+
+class Monkey(Mesh):
+    def __init__(self):
+        super().__init__()
+        self.load_object_from_obj("models/suzanne.obj")
 
 class Cube(Mesh):
     def __init__(self):
         super().__init__()
-        self.triangles = [
-            Triangle(Vec3(0, 0, 0), Vec3(0, 1, 0), Vec3(1, 1, 0)),  # South (Front) face, Triangle 1
-            Triangle(Vec3(0, 0, 0), Vec3(1, 1, 0), Vec3(1, 0, 0)),  # South (Front) face, Triangle 2
-
-            Triangle(Vec3(1, 0, 0), Vec3(1, 1, 0), Vec3(1, 1, 1)),  # East face, Triangle 3
-            Triangle(Vec3(1, 0, 0), Vec3(1, 1, 1), Vec3(1, 0, 1)),  # East face, Triangle 4
-
-            Triangle(Vec3(1, 0, 1), Vec3(1, 1, 1), Vec3(0, 1, 1)),  # North face, Triangle 5
-            Triangle(Vec3(1, 0, 1), Vec3(0, 1, 1), Vec3(0, 0, 1)),  # North face, Triangle 6
-
-            Triangle(Vec3(0, 0, 1), Vec3(0, 1, 1), Vec3(0, 1, 0)),  # West face, Triangle 7
-            Triangle(Vec3(0, 0, 1), Vec3(0, 1, 0), Vec3(0, 0, 0)),  # West face, Triangle 8
-
-            Triangle(Vec3(0, 1, 0), Vec3(0, 1, 1), Vec3(1, 1, 1)),  # Top face, Triangle 9
-            Triangle(Vec3(0, 1, 0), Vec3(1, 1, 1), Vec3(1, 1, 0)),  # Top face, Triangle 10
-
-            Triangle(Vec3(1, 0, 1), Vec3(0, 0, 1), Vec3(0, 0, 0)),  # Bottom face, Triangle 11
-            Triangle(Vec3(1, 0, 1), Vec3(0, 0, 0), Vec3(1, 0, 0))   # Bottom face, Triangle 12
-        ]
+        self.load_object_from_obj("models/cube.obj")
