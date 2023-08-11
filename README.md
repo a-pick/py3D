@@ -7,3 +7,5 @@ A Python-based 3D renderer that I've started working on in an effort to better u
 - ~~Vertex "grabbing" and runtime vertex modification [2023-08-09]~~
 - Beginnings of a camera system [2023-08-10]
 - (Very) basic GUI [2023-08-10]
+- Rudimentary lighting [2023-08-11]
+- Back face culling
